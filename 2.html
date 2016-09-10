@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>item1
+			<button>Previous</button>
+			<button>Next</button>
+		</li>
+
+		<li>item2
+			<button>Previous</button>
+			<button>Next</button>
+		</li>
+
+		<li>item3
+			<button>Previous</button>
+			<button>Next</button>
+		</li>
+
+		<li>item4
+			<button>Previous</button>
+			<button>Next</button>
+		</li>
+
+		<li>item5
+			<button>Previous</button>
+			<button>Next</button>
+		</li>
+	</ul>
+	<button id="add">add</button>
+
+	<script>
+		var prev = document.getElementsByTagName('button');
+		var ul = document.getElementsByTagName('ul')[0];
+		for (var i = 0; i < prev.length; i = i+2) {
+			if(prev[i] !== undefined){
+				prev[i].addEventListener('click', previous);
+			}
+			if(prev[i+1] !== undefined){
+				prev[i+1].addEventListener('click', next)
+			}
+		}
+		// for (var i = 1; i < prev.length; i++) {
+			
+		// }
+		add.addEventListener('click', create)
+		function previous() {
+			var a = this.parentNode.previousElementSibling;
+			ul.removeChild(a);
+		}
+		function next() {
+			var b = this.parentNode.nextElementSibling;
+			ul.removeChild(b);
+		}
+		function create(){
+			var li = document.createElement('li');
+			var butPre = document.createElement('button');
+			var butNext = document.createElement('button');
+			li.innerHTML = 'item';
+			var addEl = document.getElementsByTagName('ul')[0].appendChild(li);
+			addEl.appendChild(butPre);
+			addEl.appendChild(butNext);
+			butPre.innerHTML = 'previous';
+			butNext.innerHTML = 'next';
+			
+		}
+	</script>
+</body>
+</html>

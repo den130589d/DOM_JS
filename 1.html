@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form>
+		<input id="title">
+		<textarea id="content"></textarea>
+		<button>Создать модалку</button>
+	</form>
+	<script>
+		document.getElementsByTagName('button')[0].addEventListener('click', show);
+		
+		// if(document.getElementsByTagName('button')[1] != undefined){
+		// 	document.getElementsByTagName('button')[1].
+		// }
+
+
+		function show(e) {
+			e.preventDefault();
+			var div = document.createElement('div');
+			var p1 = document.createElement('p');
+			var p2 = document.createElement('p');
+			var but = document.createElement('button');
+			div.appendChild(p1);
+			div.appendChild(p2);
+			but.addEventListener('click', remove);
+			div.appendChild(but);
+			but.innerHTML = 'close';
+			var tit = document.getElementById('title').value;
+			var con = document.getElementById('content').value;
+			p1.innerHTML = tit;
+			p2.innerHTML = con;
+			document.body.appendChild(div);
+		}
+		function remove(){
+				var r = document.getElementsByTagName('div')[0];
+				document.body.removeChild(r);
+		}
+		
+	</script>
+</body>
+</html>
